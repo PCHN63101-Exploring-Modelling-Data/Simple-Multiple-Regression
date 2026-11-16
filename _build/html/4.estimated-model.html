@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>The Estimated Model &#8212; LM I: Simple and Multiple Regression</title>
   
@@ -31,10 +31,10 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/test.css?v=90b7ad94" />
@@ -50,11 +50,11 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -323,7 +323,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -347,7 +347,7 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -401,17 +401,17 @@
 <li><p><span class="math notranslate nohighlight">\(\hat{\beta}_{1} = -5.3445\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\hat{\sigma}^{2} = 9.2774\)</span></p></li>
 </ul>
-<p>This means that our final regression model can be expressed as</p>
+<p>This means that our final regression model can be expressed as <a class="footnote-reference brackets" href="#bracket-foot" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 <div class="math notranslate nohighlight">
 \[
-\text{MPG}_{i} = 37.2851 + -5.3445 \times \text{Weight}_{i} + e_{i}.
+\text{MPG}_{i} = 37.2851 + (-5.3445 \times \text{Weight}_{i}) + e_{i}.
 \]</div>
 <p>The residuals can be calculated once values for <span class="math notranslate nohighlight">\(\hat{\beta}_{0}\)</span> and <span class="math notranslate nohighlight">\(\hat{\beta}_{1}\)</span> are available through a simple subtraction. If we take the <em>fitted</em> or <em>predicted</em> values of MPG to be</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-    \widehat{\text{MPG}}_{i} &amp;= \hat{\beta}_{0} + \hat{\beta}_{1} \times \text{Weight}_{i} \\  
-                             &amp;= 37.2851 + -5.3445 \times \text{Weight}_{i}
+    \widehat{\text{MPG}}_{i} &amp;= \hat{\beta}_{0} + (\hat{\beta}_{1} \times \text{Weight}_{i}) \\  
+                             &amp;= 37.2851 + (-5.3445 \times \text{Weight}_{i})
 \end{align*}
 \end{split}\]</div>
 <p>then the residuals are simply</p>
@@ -422,13 +422,13 @@ e_{i} = \text{MPG}_{i} - \widehat{\text{MPG}}_{i},
 <p>which is just the distance between the measured value of MPG and the point on the regression line for the corresponding value of Weight. We can also express this in terms of our probabilistic model like so</p>
 <div class="math notranslate nohighlight">
 \[
-\text{MPG}_{i} \sim \mathcal{N}\left(37.2851 + -5.3445 \times \text{Weight}_{i}, 9.2774\right),
+\text{MPG}_{i} \sim \mathcal{N}\left(37.2851 + [-5.3445 \times \text{Weight}_{i}], 9.2774\right),
 \]</div>
 <p>though this starts to get a bit messy. Nevertheless, the point is that these estimates now complete every unknown element of the model.</p>
 </section>
 <section id="simple-regression-in-r">
 <h2>Simple Regression in <code class="docutils literal notranslate"><span class="pre">R</span></code><a class="headerlink" href="#simple-regression-in-r" title="Link to this heading">#</a></h2>
-<p>As indicated in other parts of this lesson, the <code class="docutils literal notranslate"><span class="pre">R</span></code> function we use to fit a simple regression model is <code class="docutils literal notranslate"><span class="pre">lm()</span></code>. We specify this model <em>symbolically</em> using the <code class="docutils literal notranslate"><span class="pre">R</span></code> formula interface, which we can think of as specifying the <em>mean function</em> we want <code class="docutils literal notranslate"><span class="pre">lm()</span></code> to use. Because linear models have a constant variance, there is no option to specify any other variance function. In the example below, the model formula is given by <code class="docutils literal notranslate"><span class="pre">mpg</span> <span class="pre">~</span> <span class="pre">wt</span></code>, where the <code class="docutils literal notranslate"><span class="pre">~</span></code> symbol (called a <em>tilde</em>) is used to denote that <code class="docutils literal notranslate"><span class="pre">mpg</span></code> should be modelled as a function of <code class="docutils literal notranslate"><span class="pre">wt</span></code><a class="footnote-reference brackets" href="#equals-foot" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. The symbol <code class="docutils literal notranslate"><span class="pre">~</span></code> also provides a nice connection with the mathematical notation for the distribution of a random variable.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">R</span></code> function we use to fit a simple regression model is <code class="docutils literal notranslate"><span class="pre">lm()</span></code>, for <em>linear model</em>. We specify this model <em>symbolically</em> using the <code class="docutils literal notranslate"><span class="pre">R</span></code> formula interface, which we can think of as specialised syntax for the <em>mean function</em>. Because linear models have a constant variance, there is no option to specify any other variance function. In the example below, the model formula is given by <code class="docutils literal notranslate"><span class="pre">mpg</span> <span class="pre">~</span> <span class="pre">wt</span></code>, where the <code class="docutils literal notranslate"><span class="pre">~</span></code> symbol (called a <em>tilde</em>) is used to denote that <code class="docutils literal notranslate"><span class="pre">mpg</span></code> should be modelled as a function of <code class="docutils literal notranslate"><span class="pre">wt</span></code> <a class="footnote-reference brackets" href="#equals-foot" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>In order to fit the model, we call <code class="docutils literal notranslate"><span class="pre">lm()</span></code> and then save the estimated model to an object we call <code class="docutils literal notranslate"><span class="pre">mod</span></code> (though you can choose any name you like). This is shown below</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -484,7 +484,7 @@ F-statistic: 91.38 on 1 and 30 DF,  p-value: 1.294e-10
 </div>
 </div>
 </div>
-<p>We will discuss more about the specifics of this table over the rest of this unit. For now, we can see that the parameter estimates are given in the <code class="docutils literal notranslate"><span class="pre">Estimate</span></code> column of the table. The estimate of <span class="math notranslate nohighlight">\(\sigma\)</span> is given below the table as the <code class="docutils literal notranslate"><span class="pre">Residual</span> <span class="pre">standard</span> <span class="pre">error</span></code><a class="footnote-reference brackets" href="#resstd-foot" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>We will discuss more about the specifics of this table over the rest of this unit. For now, we can see that the parameter estimates are given in the <code class="docutils literal notranslate"><span class="pre">Estimate</span></code> column of the table. The estimate of <span class="math notranslate nohighlight">\(\sigma\)</span> is given below the table as the <code class="docutils literal notranslate"><span class="pre">Residual</span> <span class="pre">standard</span> <span class="pre">error</span></code><a class="footnote-reference brackets" href="#resstd-foot" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</p>
 <p>We can extract various bits of information from the model object. For instance, to get the estimates of the regression parameters we can use</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -507,22 +507,20 @@ F-statistic: 91.38 on 1 and 30 DF,  p-value: 1.294e-10
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive 
-          23.282611           21.919770           24.885952           20.102650 
-  Hornet Sportabout             Valiant          Duster 360           Merc 240D 
-          18.900144           18.793255           18.205363           20.236262 
-           Merc 230            Merc 280           Merc 280C          Merc 450SE 
-          20.450041           18.900144           18.900144           15.533127 
-         Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental 
-          17.350247           17.083024            9.226650            8.296712 
-  Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla 
-           8.718926           25.527289           28.653805           27.478021 
-      Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28 
-          24.111004           18.472586           18.926866           16.762355 
-   Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa 
-          16.735633           26.943574           25.847957           29.198941 
-     Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E 
-          20.343151           22.480940           18.205363           22.427495 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive   Hornet Sportabout 
+          23.282611           21.919770           24.885952           20.102650           18.900144 
+            Valiant          Duster 360           Merc 240D            Merc 230            Merc 280 
+          18.793255           18.205363           20.236262           20.450041           18.900144 
+          Merc 280C          Merc 450SE          Merc 450SL         Merc 450SLC  Cadillac Fleetwood 
+          18.900144           15.533127           17.350247           17.083024            9.226650 
+Lincoln Continental   Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla 
+           8.296712            8.718926           25.527289           28.653805           27.478021 
+      Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28    Pontiac Firebird 
+          24.111004           18.472586           18.926866           16.762355           16.735633 
+          Fiat X1-9       Porsche 914-2        Lotus Europa      Ford Pantera L        Ferrari Dino 
+          26.943574           25.847957           29.198941           20.343151           22.480940 
+      Maserati Bora          Volvo 142E 
+          18.205363           22.427495 
 </pre></div>
 </div>
 </div>
@@ -535,22 +533,20 @@ F-statistic: 91.38 on 1 and 30 DF,  p-value: 1.294e-10
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive 
-         -2.2826106          -0.9197704          -2.0859521           1.2973499 
-  Hornet Sportabout             Valiant          Duster 360           Merc 240D 
-         -0.2001440          -0.6932545          -3.9053627           4.1637381 
-           Merc 230            Merc 280           Merc 280C          Merc 450SE 
-          2.3499593           0.2998560          -1.1001440           0.8668731 
-         Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental 
-         -0.0502472          -1.8830236           1.1733496           2.1032876 
-  Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla 
-          5.9810744           6.8727113           1.7461954           6.4219792 
-      Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28 
-         -2.6110037          -2.9725862          -3.7268663          -3.4623553 
-   Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa 
-          2.4643670           0.3564263           0.1520430           1.2010593 
-     Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E 
-         -4.5431513          -2.7809399          -3.2053627          -1.0274952 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive   Hornet Sportabout 
+         -2.2826106          -0.9197704          -2.0859521           1.2973499          -0.2001440 
+            Valiant          Duster 360           Merc 240D            Merc 230            Merc 280 
+         -0.6932545          -3.9053627           4.1637381           2.3499593           0.2998560 
+          Merc 280C          Merc 450SE          Merc 450SL         Merc 450SLC  Cadillac Fleetwood 
+         -1.1001440           0.8668731          -0.0502472          -1.8830236           1.1733496 
+Lincoln Continental   Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla 
+          2.1032876           5.9810744           6.8727113           1.7461954           6.4219792 
+      Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28    Pontiac Firebird 
+         -2.6110037          -2.9725862          -3.7268663          -3.4623553           2.4643670 
+          Fiat X1-9       Porsche 914-2        Lotus Europa      Ford Pantera L        Ferrari Dino 
+          0.3564263           0.1520430           1.2010593          -4.5431513          -2.7809399 
+      Maserati Bora          Volvo 142E 
+         -3.2053627          -1.0274952 
 </pre></div>
 </div>
 </div>
@@ -664,7 +660,8 @@ F-statistic: 91.38 on 1 and 30 DF,  p-value: 1.294e-10
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/1120da8a8e689f764c46949040761f16d0fe973abfd6fa3f1ec1d141ebd17fb2.png"><img alt="_images/1120da8a8e689f764c46949040761f16d0fe973abfd6fa3f1ec1d141ebd17fb2.png" src="_images/1120da8a8e689f764c46949040761f16d0fe973abfd6fa3f1ec1d141ebd17fb2.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/17a5eb1c01c41b474abec941c5070d5438578cb9f8f161210e1fc7c30a3ab618.png"><img alt="_images/17a5eb1c01c41b474abec941c5070d5438578cb9f8f161210e1fc7c30a3ab618.png" src="_images/17a5eb1c01c41b474abec941c5070d5438578cb9f8f161210e1fc7c30a3ab618.png" style="width: 1105px; height: 829px;" />
+</a>
 </div>
 </div>
 <p>This plot is not going to win any awards for visual style, but it is simple and effective as a quick means of drawing the model fit. It is the sort of plot we would use during the process of analysis, just to have a quick look. The key point is being able to <em>see</em> the model fit and assess it visually. This is one of the most important steps of building a statistical model as there is no substitute for <em>looking</em> at the data and seeing visually what your model is predicting.</p>
@@ -682,12 +679,16 @@ F-statistic: 91.38 on 1 and 30 DF,  p-value: 1.294e-10
 </aside>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="equals-foot" role="note">
+<aside class="footnote brackets" id="bracket-foot" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>We use the brackets here not because they are necessary, but because they help group together each variable and its corresponding parameter.</p>
+</aside>
+<aside class="footnote brackets" id="equals-foot" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>You may wonder, why not use the <code class="docutils literal notranslate"><span class="pre">=</span></code> symbol? The answer is that <code class="docutils literal notranslate"><span class="pre">=</span></code> already has a meaning in <code class="docutils literal notranslate"><span class="pre">R</span></code> for deifning named arguments within a function. For instance, we use <code class="docutils literal notranslate"><span class="pre">data=mtcars</span></code> as an argument inside <code class="docutils literal notranslate"><span class="pre">lm()</span></code>. So, another symbol is needed to prevent the parser from getting confused.</p>
 </aside>
-<aside class="footnote brackets" id="resstd-foot" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="resstd-foot" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
 <p>This is something of a misnomer, but is one of the quirks of <code class="docutils literal notranslate"><span class="pre">lm()</span></code> that has stuck around for many years.</p>
 </aside>
 </aside>
@@ -753,11 +754,12 @@ F-statistic: 91.38 on 1 and 30 DF,  p-value: 1.294e-10
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-final-estimates">The Final Estimates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-regression-in-r">Simple Regression in <code class="docutils literal notranslate"><span class="pre">R</span></code></a></li>
