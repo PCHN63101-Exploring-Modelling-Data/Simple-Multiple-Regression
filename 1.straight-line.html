@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Fitting a Straight Line to Data &#8212; LM I: Simple and Multiple Regression</title>
   
@@ -31,10 +31,10 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/test.css?v=90b7ad94" />
@@ -50,11 +50,11 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -323,7 +323,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -347,7 +347,7 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -395,10 +395,10 @@
 <p>As explained last week, one of the main reasons for modelling data is to <em>simplify</em> the complex relationships between variables. If we can express these relationships in a simple form then we can reduce all the information across <span class="math notranslate nohighlight">\(n\)</span> measurements of <span class="math notranslate nohighlight">\(k\)</span> variables into just a handful of numbers. Those numbers can then be used to both <em>explain</em> the process that generated the data, as well as allowing for <em>prediction</em> of unmeasured values.</p>
 <p>In many real-world cases, the simplest relationship we can define is given by a <em>straight line</em>. As an example, if we again use the <code class="docutils literal notranslate"><span class="pre">mtcars</span></code> data and plot <code class="docutils literal notranslate"><span class="pre">wt</span></code> against <code class="docutils literal notranslate"><span class="pre">mpg</span></code>, we have the pattern shown below.</p>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">data</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span>
@@ -408,16 +408,17 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/191e82958e63308c9c7e45c76d8a25bbe75e04ed79408cf6416aded55b08ed49.png"><img alt="_images/191e82958e63308c9c7e45c76d8a25bbe75e04ed79408cf6416aded55b08ed49.png" src="_images/191e82958e63308c9c7e45c76d8a25bbe75e04ed79408cf6416aded55b08ed49.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/1e2cd856a0210bfb7a905291d613b130d92bca39894771dfce079ae57065245a.png"><img alt="_images/1e2cd856a0210bfb7a905291d613b130d92bca39894771dfce079ae57065245a.png" src="_images/1e2cd856a0210bfb7a905291d613b130d92bca39894771dfce079ae57065245a.png" style="width: 1102px; height: 827px;" />
+</a>
 </div>
 </div>
 <p>As <code class="docutils literal notranslate"><span class="pre">wt</span></code> increases there is clear <em>decrease</em> in the value of <code class="docutils literal notranslate"><span class="pre">mpg</span></code>. Although the relationship is not perfect, we could probably do a fairly good job of capturing this by simply drawing a line through the cloud of the datapoints. Although this line may only intersect a few of the measured datapoints, the hope would be that, in some sense, the line captures the <em>general pattern</em> we can see in the data.</p>
 <p>An example of such a line is shown below. For the moment, do not worry about how this has been defined or the numbers that have been used. The main point is just gaining intuition for <em>why</em> we would want to do this.</p>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">mtcars</span><span class="o">$</span><span class="n">mpg</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;Weight&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;MPG&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">35</span><span class="p">))</span>
@@ -427,35 +428,36 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/bca135a652fce631036f3e575cc718de289012421531c84a7c261271a3444f57.png"><img alt="_images/bca135a652fce631036f3e575cc718de289012421531c84a7c261271a3444f57.png" src="_images/bca135a652fce631036f3e575cc718de289012421531c84a7c261271a3444f57.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/3a603af49686806f49d7193b56479d51d7ece88c54197e555539d789e8b646c7.png"><img alt="_images/3a603af49686806f49d7193b56479d51d7ece88c54197e555539d789e8b646c7.png" src="_images/3a603af49686806f49d7193b56479d51d7ece88c54197e555539d789e8b646c7.png" style="width: 1092px; height: 819px;" />
+</a>
 </div>
 </div>
-<p>This line does appear to do a good job of capturing the general pattern we can see in the data. As a means of summarising the data, the line intersects some data points, whereas others are further away. Neverthless, in a very general sense, this seems a reasonable summary that captures the essence of the fact that as weight increases, MPG decreases. Furthermore, there are points on this line that have no corresponding data (e.g. between <code class="docutils literal notranslate"><span class="pre">wt</span></code> measurements of 4 and 5). As such, these elements of the line represent a <em>prediction</em> about what value of MPG we would expect for those particular values of weight.</p>
+<p>As a means of summarising the data, the line intersects some data points, whereas others are further away. Nevertheless, in a very general sense, this seems a reasonable summary that captures the essence of the fact that as weight increases, MPG decreases. Furthermore, there are points on this line that have no corresponding data (e.g. between <code class="docutils literal notranslate"><span class="pre">wt</span></code> of 4 and 5). As such, these elements of the line represent a <em>prediction</em> about what value of MPG we would expect for those particular values of weight.</p>
 </section>
 <section id="the-straight-line-equation">
 <h2>The Straight Line Equation<a class="headerlink" href="#the-straight-line-equation" title="Link to this heading">#</a></h2>
-<p>In order to fully appreciate how a straight line provides a <em>simplification</em> of the data, we need to examine how a straight line is defined mathematically. The classic algebraic expression of a line is</p>
+<p>In order to fully appreciate how a straight line provides a <em>simplification</em> of the data, we need to examine how a straight line is defined mathematically. The algebraic expression of a line is given by</p>
 <div class="math notranslate nohighlight">
 \[
-y = mx + b,
+    y = mx + b,
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> have their usual interpretations, <span class="math notranslate nohighlight">\(m\)</span> is the <em>slope</em> of the line and <span class="math notranslate nohighlight">\(b\)</span> is the <em>intercept</em>. For our <code class="docutils literal notranslate"><span class="pre">mtcars</span></code> example, this would be</p>
 <div class="math notranslate nohighlight">
 \[
-\text{MPG} = m \times \text{Weight} + b.
+\text{MPG} = (m \times \text{Weight}) + b.
 \]</div>
-<p>Understanding this equation can be made simpler by conceptualising it as instructions for how far to climb up the <span class="math notranslate nohighlight">\(y\)</span>-axis, after walking a certain distance along the <span class="math notranslate nohighlight">\(x\)</span>-axis. We always start our walk from an <span class="math notranslate nohighlight">\(x\)</span>-value of 0. The intercept, <span class="math notranslate nohighlight">\(b\)</span>, tells us how far we need to climb up <span class="math notranslate nohighlight">\(y\)</span> before we start walking. For the line we showed above, we start from <span class="math notranslate nohighlight">\(x = 0\)</span> and <span class="math notranslate nohighlight">\(y = b = 37.2851\)</span>. So, we need to climb all the way up to a value of <span class="math notranslate nohighlight">\(37.2851\)</span> before we start walking. The slope then tells us how far we would need to climb up <span class="math notranslate nohighlight">\(y\)</span> if we take <em>one step</em> along the <span class="math notranslate nohighlight">\(x\)</span>-axis. For the line shown above, we had <span class="math notranslate nohighlight">\(m = -5.3445\)</span>. So, if we move along the <span class="math notranslate nohighlight">\(x\)</span>-axis by one unit of <code class="docutils literal notranslate"><span class="pre">wt</span></code>, then we need to move <em>down</em> the <span class="math notranslate nohighlight">\(y\)</span>-axis by <span class="math notranslate nohighlight">\(5.3445\)</span>. For any other distance, we can simply multiply how far we are walking by the value of <span class="math notranslate nohighlight">\(m\)</span>. For instance, if we walked 2-units along <span class="math notranslate nohighlight">\(x\)</span> we would have <span class="math notranslate nohighlight">\(m \times 2 = -10.689\)</span>, whereas if we move only half a unit we would have <span class="math notranslate nohighlight">\(m \times 0.5 = -2.6723\)</span>.</p>
-<p>Given the information above, knowing the <span class="math notranslate nohighlight">\(y\)</span>-value of a line only depends upon <em>three</em> pieces of information: the <em>intercept</em> (our starting point), the <em>slope</em> (how <span class="math notranslate nohighlight">\(y\)</span> changes for a single unit change in <span class="math notranslate nohighlight">\(x\)</span>) and <span class="math notranslate nohighlight">\(x\)</span> (how far we are actually walking). In the context of our example, we already know the values of <span class="math notranslate nohighlight">\(x\)</span> as these are given by the <code class="docutils literal notranslate"><span class="pre">wt</span></code> variable. As such, there are only <em>two</em> values we need to choose (<span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(m\)</span>). Importantly, once we have values for both the intercept and slope, we have effectively reduced all the information in the data to <em>two numbers</em>. For the <code class="docutils literal notranslate"><span class="pre">mtcars</span></code> example, we have therefore gone from 32 values of <code class="docutils literal notranslate"><span class="pre">mpg</span></code> and 32 values of <code class="docutils literal notranslate"><span class="pre">wt</span></code> to only two summary values. These two numbers capture everything we need to know about the <em>general</em> relationship in the data.</p>
+<p>We can conceptualise this equation as instructions for how far to climb up the <span class="math notranslate nohighlight">\(y\)</span>-axis, after walking a certain distance along the <span class="math notranslate nohighlight">\(x\)</span>-axis. We always start our walk from an <span class="math notranslate nohighlight">\(x\)</span>-value of 0. The intercept, <span class="math notranslate nohighlight">\(b\)</span>, tells us how far we need to climb up <span class="math notranslate nohighlight">\(y\)</span> before we start walking. For the line we showed above, we start from <span class="math notranslate nohighlight">\(x = 0\)</span> and <span class="math notranslate nohighlight">\(y = b = 37.2851\)</span>. So, we need to climb all the way up to a value of <span class="math notranslate nohighlight">\(37.2851\)</span> before we start walking. The slope then tells us how far we would need to climb up <span class="math notranslate nohighlight">\(y\)</span> if we take <em>one step</em> along the <span class="math notranslate nohighlight">\(x\)</span>-axis. For the line shown above, we had <span class="math notranslate nohighlight">\(m = -5.3445\)</span>. So, if we move along the <span class="math notranslate nohighlight">\(x\)</span>-axis by one unit of <code class="docutils literal notranslate"><span class="pre">wt</span></code>, then we need to move <em>down</em> the <span class="math notranslate nohighlight">\(y\)</span>-axis by <span class="math notranslate nohighlight">\(5.3445\)</span>. For any other distance, we can simply multiply how far we are walking by the value of <span class="math notranslate nohighlight">\(m\)</span>. For instance, if we walked 2-units along <span class="math notranslate nohighlight">\(x\)</span> we would have <span class="math notranslate nohighlight">\(m \times 2 = -10.689\)</span>, whereas if we move only half a unit we would have <span class="math notranslate nohighlight">\(m \times 0.5 = -2.6723\)</span>.</p>
+<p>Given the information above, knowing the <span class="math notranslate nohighlight">\(y\)</span>-value of a line only depends upon <em>three</em> pieces of information: the <em>intercept</em> (our starting point), the <em>slope</em> (how <span class="math notranslate nohighlight">\(y\)</span> changes for a single unit change in <span class="math notranslate nohighlight">\(x\)</span>) and <span class="math notranslate nohighlight">\(x\)</span> (how far we are actually walking). In the context of our example, we already know the values of <span class="math notranslate nohighlight">\(x\)</span> as these are given by the <code class="docutils literal notranslate"><span class="pre">wt</span></code> variable. As such, there are only <em>two</em> values we need to choose (<span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(m\)</span>). Importantly, once we have values for both the intercept and slope, we have effectively reduced all the information in the data to <em>two numbers</em>. For the <code class="docutils literal notranslate"><span class="pre">mtcars</span></code> example, we have therefore gone from 32 values of <code class="docutils literal notranslate"><span class="pre">mpg</span></code> and 32 values of <code class="docutils literal notranslate"><span class="pre">wt</span></code> to only <em>two</em> summary values. These two numbers capture everything we need to know about the <em>general</em> relationship in the data.</p>
 </section>
 <section id="finding-the-best-line">
 <h2>Finding the “Best” Line<a class="headerlink" href="#finding-the-best-line" title="Link to this heading">#</a></h2>
 <p>In the example above, the values of <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(m\)</span> were already given. However, in any real-world analysis, these will be unknown. As such, we need to consider <em>how</em> we find reasonable values for these parameters. This requires some rule for determining which line we think is “best” for capturing the relationship in our data.</p>
 <p>In general, we want this line to be as <em>close</em> to our data as possible. In other words, we want the average distance from the data points to the line to be as <em>small</em> as possible. These distances are shown in the plot below for the line we used earlier.</p>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot data and line</span>
@@ -477,10 +479,11 @@ y = mx + b,
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/43795d130b7b591ee48358ae56467bd0034f32f279bb0ab60001b5d79eee1d03.png"><img alt="_images/43795d130b7b591ee48358ae56467bd0034f32f279bb0ab60001b5d79eee1d03.png" src="_images/43795d130b7b591ee48358ae56467bd0034f32f279bb0ab60001b5d79eee1d03.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/ad9f65f02ab42681f3afb8c898fe495d5a4ff7614b2c35c028fb886da8af88c1.png"><img alt="_images/ad9f65f02ab42681f3afb8c898fe495d5a4ff7614b2c35c028fb886da8af88c1.png" src="_images/ad9f65f02ab42681f3afb8c898fe495d5a4ff7614b2c35c028fb886da8af88c1.png" style="width: 1092px; height: 819px;" />
+</a>
 </div>
 </div>
-<p>Does this picture look familiar? If you remember from last week, we used the same form of visualisation when we were exploring the concept of <em>variance</em>. The only difference now is that our reference point is no longer the mean of the data, it is the <em>regression line</em>. So, if we want a line that minimises these vertical distances, what we are really looking for is a line that <em>minimises the variance around the regression line</em>.</p>
+<p>Remembering back to last week, we used a similar form of visualisation when we were exploring the concept of <em>variance</em>. The only difference now is that our reference point is no longer the mean of the data, it is the <em>regression line</em>. So, if we want a line that minimises these vertical distances, what we are really looking for is a line that <em>minimises the variance around the regression line</em>.</p>
 <p>If we define the <em>expected values</em> of <span class="math notranslate nohighlight">\(y\)</span> to be the straight line equation, then <span class="math notranslate nohighlight">\(\text{Var}(y)\)</span> precisely captures these vertical distances. To see this formally, we can take</p>
 <div class="math notranslate nohighlight">
 \[
@@ -496,10 +499,10 @@ E(y) = mx + b.
 \end{split}\]</div>
 <p>which should be familiar from last week. As also discussed last week, subtracting an expectation from the raw data produces a quantity known as the <em>errors</em>. The variance therefore captures the value of the <em>mean squared errors</em> (MSE). As we know, the errors are centred around 0 so that, in the context of a straight-line, removing the expectation produces the following</p>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># line parameters</span>
@@ -524,15 +527,16 @@ E(y) = mx + b.
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/68b536a5e30ae3823731188ed28760d4b18c5685e803b90dd384e1c2ee3ea0a5.png"><img alt="_images/68b536a5e30ae3823731188ed28760d4b18c5685e803b90dd384e1c2ee3ea0a5.png" src="_images/68b536a5e30ae3823731188ed28760d4b18c5685e803b90dd384e1c2ee3ea0a5.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/d2b38a482e744680a586dcae96095c984a4207a458caf540c1aec3f483404d01.png"><img alt="_images/d2b38a482e744680a586dcae96095c984a4207a458caf540c1aec3f483404d01.png" src="_images/d2b38a482e744680a586dcae96095c984a4207a458caf540c1aec3f483404d01.png" style="width: 1092px; height: 819px;" />
+</a>
 </div>
 </div>
 <p>The errors are therefore deflections from the expected value which, in this case, is the regression line. The regression line that is <em>closest</em> to the data is the one that makes the average defection as small as possible. To stop the positive and negative deflections from cancelling when we calculate the average, we typically <em>square</em> these values. As such, we are looking for a line that minimises the <em>squared</em> distances, as shown below.</p>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="w">      </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">37.2851</span><span class="w">                            </span><span class="c1"># intercept</span>
@@ -554,10 +558,11 @@ E(y) = mx + b.
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/69eb04e3cf317abff46eefba4a7c24314adaeb235e42e7daa4e20525d3c526a0.png"><img alt="_images/69eb04e3cf317abff46eefba4a7c24314adaeb235e42e7daa4e20525d3c526a0.png" src="_images/69eb04e3cf317abff46eefba4a7c24314adaeb235e42e7daa4e20525d3c526a0.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/324fe9d3c6f66f2b1f4e26b7dc8cbfde9f76febc0073db45eb78d0c5ae7323f0.png"><img alt="_images/324fe9d3c6f66f2b1f4e26b7dc8cbfde9f76febc0073db45eb78d0c5ae7323f0.png" src="_images/324fe9d3c6f66f2b1f4e26b7dc8cbfde9f76febc0073db45eb78d0c5ae7323f0.png" style="width: 1092px; height: 819px;" />
+</a>
 </div>
 </div>
-<p>As we can see above, squaring is a useful thing to do because it makes all values <em>positive</em> and makes larger deflections <em>more extreme</em>. This means that not all data are treated equally when finding a line. Instead, the regression line is weighted towards making larger deflections smaller. The only downside of this is that if there are very extreme points (known as <em>outliers</em>) then the line may be unduly influenced by those individual points. We will come back to this point later on the unit.</p>
+<p>As we can see above, squaring is a useful thing to do because it makes all values <em>positive</em> and makes larger deflections <em>more extreme</em>. This means that not all data are treated equally when finding a line. Instead, the regression line is weighted towards making larger deflections smaller. The only downside of this is that if there are very extreme points (known as <em>outliers</em>) then the line may be unduly influenced by those individual points.</p>
 <div class="tip admonition">
 <p class="admonition-title">Minimising Variance</p>
 <p>The main point to take away from this is that finding the “best” line is an exercise in minimising variance. If we remember from last week that the aim of a statistical model is to split the <em>total</em> variation in the data into multiple parts, what we are really doing is partitioning our original definition of variation into</p>
@@ -604,7 +609,7 @@ S = x_{1} + x_{2} + x_{3},
 </div>
 <p>You can therefore think of the Big Sigma notation as a <em>summation loop</em> over a certain set of indices. Smetimes, in the interests of space, the summation indices are dropped and a sum is just written as <span class="math notranslate nohighlight">\(\sum{x_{j}}\)</span>. In these instances, the index and the range is <em>implied</em> rather than explicit. For instance, we would just assume that the sum runs across all values of <span class="math notranslate nohighlight">\(j\)</span>, given that this is the only index in the expression.</p>
 </div>
-<p>So, how do we find the <em>minimum</em> SSE? This is where the tools of calculus are need to find the minimum of a function. This is beyond the scope of this lesson (<em>and</em> unit, <em>and</em> course). However, we do not really need to understand the derivation. The only important practical point is that, for linear regression problems, a <em>closed-form solution</em> exists to find the line that minimises the SSE. What this means is that we do not need to use iterative algorithms to search for a solution amongst many possibilities. Instead, a <em>single set of equations</em> can be applied to any regression problem to find this line. These are given by</p>
+<p>So, how do we find the <em>minimum</em> SSE? This is where the tools of calculus are need to find the minimum of a function. This is beyond the scope of this lesson, however, we do not really need to understand the derivation. The only important practical point is that, for linear regression problems, a <em>closed-form solution</em> exists to find the line that minimises the SSE. What this means is that we do not need to use iterative algorithms to search for a solution amongst many possibilities. Instead, a <em>single set of equations</em> can be applied to any regression problem to find this line. These are given by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
@@ -630,7 +635,7 @@ S = x_{1} + x_{2} + x_{3},
 </div>
 </div>
 </div>
-<p>This produces the same values we saw earlier for both the intercept and the slope. As such, we have successfully estimated the line that best summarises these data in terms of minimising the sum-of-squared errors. This is the <em>least-squares line</em>.</p>
+<p>This produces the same values we saw earlier for both the intercept and the slope. As such, we have successfully estimated the line that best summarises these data in terms of minimising the sum-of-squared errors.</p>
 <aside class="topic">
 <p class="topic-title">What do you now know?</p>
 <p>In this section, we have explored the general idea of capturing the relationship between two variables by fitting a straight line to the data. After reading this section, you should have a good sense of:</p>
@@ -638,12 +643,12 @@ S = x_{1} + x_{2} + x_{3},
 <li><p>How a line can be used to <em>simplify</em> and <em>summarise</em> the pattern you can see when plotting one variable against another.</p></li>
 <li><p>How a line can be described mathematically using the expression <span class="math notranslate nohighlight">\(y = mx + b\)</span>.</p></li>
 <li><p>How finding the “best” line can be achieved by minimising the sum of squared errors between the line and the raw data.</p></li>
-<li><p>How this exericse in minimisation relates to the concept of <em>variance</em> and how closed-form solutions to this problem are known as the method of Ordinary Least Squres (OLS).</p></li>
+<li><p>How this exercise in minimisation relates to the concept of <em>variance</em> and how closed-form solutions to this problem are known as the method of Ordinary Least Squares (OLS).</p></li>
 </ul>
 </aside>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="sum-foot" role="note">
+<aside class="footnote brackets" id="sum-foot" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>The reasons for using a sum rather than an average are actually a bit complicated. We will come back to this in later lessons on ANOVA models. If you are returning here after the ANOVA lessons, it should now be clearer why OLS works on partitioning the sums-of-squares, rather than the sample variance. If this is your first time reading this lesson, do not worry about this detail for now.</p>
 </aside>
@@ -711,11 +716,12 @@ S = x_{1} + x_{2} + x_{3},
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-a-relationship-with-a-line">Describing a Relationship with a Line</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-straight-line-equation">The Straight Line Equation</a></li>

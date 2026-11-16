@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Maximum Likelihood &#8212; LM I: Simple and Multiple Regression</title>
   
@@ -31,10 +31,10 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/test.css?v=90b7ad94" />
@@ -50,11 +50,11 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -323,7 +323,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -347,7 +347,7 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -392,10 +392,10 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="maximum-likelihood">
 <h1>Maximum Likelihood<a class="headerlink" href="#maximum-likelihood" title="Link to this heading">#</a></h1>
-<p>At the end of the previous section, we discussed the concept of estimating the parameters of the simple regression model. In this section, we will explore a method known as <em>maximum likelihood estimation</em> (MLE) that is applicable to both simple linear models, as well as many of the more complex models we will see later on the course.</p>
+<p>At the end of the previous section, we discussed the concept of estimating the parameters of the simple regression model. In this section, we will explore a method known as <em>maximum likelihood estimation</em> (MLE) that is applicable to both simple linear models as well as many of the more complex models we will see later on the course.</p>
 <section id="mle-vs-ols">
 <h2>MLE vs OLS<a class="headerlink" href="#mle-vs-ols" title="Link to this heading">#</a></h2>
-<p>At the beginning of this lesson, we demonstrated how the simple regression line could be fit by minimising the sum of squared errors. This is known as the method of <em>ordinary least squares</em> (OLS). OLS is useful because it is easy to conceptualise and results in a simple set of equations for finding estimates. Because of this, OLS is generally considered <em>the</em> method used for estimating linear models. However, models that do not assume a normal distribution or those that assume more complex correlational and variance structures cannot be estimated with OLS. As such, OLS is actually something of a niche approach that gets abandoned quickly as models get more complex. Because of this, it is much more helpful to consider a <em>likelihood</em> approach to estimation<a class="footnote-reference brackets" href="#searlefoot" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. The principle of the likelihood is widely applicable across may different types of model, as well as being fundamental to Bayesian methods. As such, we can consider MLE as our singular generic method of estimation that will be applicable across this entire course.</p>
+<p>At the beginning of this lesson, we demonstrated how the simple regression line could be fit by minimising the sum of squared errors. This is known as the method of <em>ordinary least squares</em> (OLS). OLS is useful because it is easy to conceptualise and results in a simple set of equations for finding estimates. Because of this, OLS is generally considered <em>the</em> method used for estimating linear models. However, models that do not assume a normal distribution or those that assume more complex correlational and variance structures cannot be estimated with OLS. As such, OLS is actually something of a niche approach that gets abandoned quickly as models get more complex. Because of this, it is much more helpful to consider a <em>likelihood</em> approach to estimation <a class="footnote-reference brackets" href="#searlefoot" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. The principle of the likelihood is widely applicable across may different types of model, as well as being fundamental to Bayesian methods. As such, we can consider MLE as our singular generic method of estimation that will be applicable across this entire course.</p>
 </section>
 <section id="how-does-mle-work">
 <h2>How Does MLE Work?<a class="headerlink" href="#how-does-mle-work" title="Link to this heading">#</a></h2>
@@ -409,7 +409,8 @@ L\left(\theta|y\right),
 \[
 L\left(\theta|y\right) = P\left(y|\theta\right).
 \]</div>
-<p>In words, this is saying that the likelihood of a set of parameter values, given some data, is the <em>same</em> as evaluating the probability of the data, assuming those parameter values are true. The key point here is that MLE is about the <em>probability of the data</em><a class="footnote-reference brackets" href="#bayesfoot" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. We can think about it as taking a guess for the parameter values, then calculating how probable those guesses make the data we have collected. It is like asking the question: “how likely would it have been to collect my data, if these were the parameter values?” By searching through lots of different possible combinations of parameter values, the aim is to find the specific combination that leads to the <em>highest probability</em> of the data. These are then the values that <em>maxmimise the likelihood</em>.</p>
+<p>In words, this is saying that the likelihood of a set of parameter values, given some data, is the <em>same</em> as evaluating the probability of the data, assuming those parameter values are true.</p>
+<p>The key point here is that MLE is about the <em>probability of the data</em> <a class="footnote-reference brackets" href="#bayesfoot" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. We can think about it as taking a guess for the parameter values, then calculating how probable those guesses make the data we have collected. It is like asking the question: “how likely would it have been to collect my data, if these were the parameter values?” By searching through lots of different possible combinations of parameter values, the aim is to find the specific combination that leads to the <em>highest probability</em> of the data. These are then the values that <em>maxmimise the likelihood</em>.</p>
 <section id="the-likelihood-function">
 <h3>The Likelihood Function<a class="headerlink" href="#the-likelihood-function" title="Link to this heading">#</a></h3>
 <p>So how do we evaluate the likelihood function? In brief, if we want the likelihood of our entire dataset, we need to <em>multiply</em> the probability of each datapoint, using some guesses for the parameters. We can then repeat this for some other guesses. If the likelihood gets <em>larger</em> then our new guesses make the data more probable than our old guesses. If we keep doing this until we cannot make the likelihood any bigger then we have found the “best” parameters, according to MLE.</p>
@@ -510,7 +511,7 @@ P = y_{1} \times y_{2} \times y_{3} ,
 </div>
 </div>
 </div>
-<p>where all the hideousness of the normal probability density is hidden behind the <code class="docutils literal notranslate"><span class="pre">dnorm()</span></code> function. The probability of the second value of <code class="docutils literal notranslate"><span class="pre">mpg</span></code> would then be</p>
+<p>where the complexity of the normal probability density is hidden behind the <code class="docutils literal notranslate"><span class="pre">dnorm()</span></code> function. The probability of the second value of <code class="docutils literal notranslate"><span class="pre">mpg</span></code> would then be</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">y.2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">mtcars</span><span class="o">$</span><span class="n">mpg</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
@@ -527,7 +528,7 @@ P = y_{1} \times y_{2} \times y_{3} ,
 </div>
 </div>
 </div>
-<p>and so on. The find out the overall likelihood for the <em>whole</em> dataset, we just need to <em>multiply</em> these probabilities. However, this can cause computational problems, so we usually sum the <em>log</em> of these probabilities<a class="footnote-reference brackets" href="#likprobsfoot" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>. This gives the <em>log-likelihood</em>.</p>
+<p>and so on. The find out the overall likelihood for the <em>whole</em> dataset, we just need to <em>multiply</em> these probabilities. However, this can cause computational problems, so we usually sum the <em>log</em> of these probabilities <a class="footnote-reference brackets" href="#likprobsfoot" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>. This gives the <em>log-likelihood</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span><span class="w">     </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">beta.0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">beta.1</span><span class="o">*</span><span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span><span class="w">                            </span><span class="c1"># means for whole dataset</span>
@@ -614,15 +615,15 @@ y^{\ast} = \left[27, 4, -2, -29\right].
 </aside>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="searlefoot" role="note">
+<aside class="footnote brackets" id="searlefoot" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>This is the perspective taken by <a class="reference external" href="https://www.librarysearch.manchester.ac.uk/permalink/44MAN_INST/1r887gn/alma9930787964401631">McCulloch, Searle &amp; Neuhaus (2008)</a>, who are leading experts on linear models. The linked textbook is quite advanced, but does give you everything you would need to know about the theory of linear models. If you think these materials are hard, just have a little peek in there!</p>
+<p>This is the perspective taken by <a class="reference external" href="https://www.librarysearch.manchester.ac.uk/permalink/44MAN_INST/1r887gn/alma9930787964401631">McCulloch, Searle &amp; Neuhaus (2008)</a>, who are leading experts on linear models. The linked textbook is very advanced, but does give you everything you would need to know about the theory of linear models.</p>
 </aside>
-<aside class="footnote brackets" id="bayesfoot" role="note">
+<aside class="footnote brackets" id="bayesfoot" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>This may seem like the wrong quantity. Surely, we are interested in the parameter values with the highest probability, given the data we have? Unfortunately, evaluating <span class="math notranslate nohighlight">\(P(\boldsymbol{\theta}|\mathcal{D})\)</span> requires Bayesian methods, which we will discuss in a litte more detail next week. Parameter estimation <em>without</em> Bayesian approaches therefore limits us to only evaluating <span class="math notranslate nohighlight">\(P(\mathcal{D}|\boldsymbol{\theta})\)</span>, even if this feels like the wrong thing to do.</p>
 </aside>
-<aside class="footnote brackets" id="likprobsfoot" role="note">
+<aside class="footnote brackets" id="likprobsfoot" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
 <p>This is a problem of getting values of 0 due to issues with computational precision. Taking logs not only changes the scale so that this does not happen, but it also turns <em>multiplication</em> into <em>summation</em>. Historically, this made calculating the likelihood much easier by hand.</p>
 </aside>
@@ -690,11 +691,12 @@ y^{\ast} = \left[27, 4, -2, -29\right].
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mle-vs-ols">MLE vs OLS</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-mle-work">How Does MLE Work?</a><ul class="nav section-nav flex-column">

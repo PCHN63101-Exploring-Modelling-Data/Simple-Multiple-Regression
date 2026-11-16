@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>The Simple Regression Model &#8212; LM I: Simple and Multiple Regression</title>
   
@@ -31,10 +31,10 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/test.css?v=90b7ad94" />
@@ -50,11 +50,11 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -323,7 +323,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -347,7 +347,7 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -401,26 +401,26 @@
 <p>To begin, we will work through all the elements of a statistical model we discussed last week, indicating how these are defined for simple regression.</p>
 <section id="the-population-distribution">
 <h3>1) The Population Distribution<a class="headerlink" href="#the-population-distribution" title="Link to this heading">#</a></h3>
-<p>The starting point for a simple regression model is to assume that the population distribution is <em>normal</em>. This implies that whatever outcome variable we have, it can be conceptualised as a <em>continuous random variable</em> drawn from a normal distribution with some mean and some variance. In symbols, we therefore have</p>
+<p>The starting point for a simple regression model is to assume that the population distribution is <em>normal</em>. This implies that whatever outcome variable we have, it can be conceptualised as a <em>continuous random variable</em> drawn from a normal distribution with some mean and some variance:</p>
 <div class="math notranslate nohighlight">
 \[
 y_{i} \sim \mathcal{N}\left(\mu_{i},\sigma^{2}_{i}\right).
 \]</div>
-<p>The reason for using the normal distribution is simply because it is <em>useful</em> from a mathematical perspective. There are certain derivations relied on later that depend upon the assumption of normality. Importantly, these are mathematically <em>tractable</em>, which simply means that you do not get stuck when working them out. In the past, when these types of results were worked-out by hand, assumptions needed to be made that allowed calculations to be as simple as possible. The normal distribution achieves this for many analysis problems. As such, this choice is largely historical and we will see more advanced methods that do not assume this later in the course.</p>
+<p>The reason for using the normal distribution is because it is <em>useful</em> from a mathematical perspective. There are certain derivations relied upon later that depend upon the assumption of normality. Importantly, these are mathematically <em>tractable</em>, which simply means that you do not get stuck when working them out. In the past, when these types of results were worked-out by hand, assumptions needed to be made that allowed calculations to be as simple as possible. As such, this choice is largely historical and we will see more advanced methods that do not assume this later in the course.</p>
 </section>
 <section id="the-mean-function">
 <h3>2) The Mean Function<a class="headerlink" href="#the-mean-function" title="Link to this heading">#</a></h3>
-<p>Next, we need to define what form the expected value of the normal distribution will take. Because simple regression problems have only <em>one</em> predictor variable, we therefore wish to define <span class="math notranslate nohighlight">\(E(y|x)\)</span>. In other words, we define an equation for the <em>mean</em> of the population disribution as dependent on the value of the predictor variable. For example, the average value of MPG after taking the specific weight of car into account.</p>
+<p>Next, we need to define what form the expected value of the normal distribution will take. Because simple regression problems have only <em>one</em> predictor variable, we therefore wish to define <span class="math notranslate nohighlight">\(E(y|x)\)</span>. In other words, we define an equation for the <em>mean</em> of the population distribution, conditional on the value of the predictor variable. For example, the average value of MPG after taking the specific weight of car into account.</p>
 <p>As discussed in the previous section, for a simple regression model the mean is defined as a point on a <em>straight line</em>. Previously this was given as <span class="math notranslate nohighlight">\(E(y) = mx + b\)</span>. However, we use a slightly different notation for regression models:</p>
 <div class="math notranslate nohighlight">
 \[
 E\left(y_{i}|x_{i}\right) = \beta_{0} + \beta_{1}x_{i}.
 \]</div>
-<p>This is functionally identical to the traditional notation, we have just renamed <span class="math notranslate nohighlight">\(b \rightarrow \beta_{0}\)</span>, <span class="math notranslate nohighlight">\(m \rightarrow \beta_{1}\)</span> and have changed the order of the terms in the sum. The reason for this is that it is useful to group the parameters together under the same name, rather than separating them out into <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. This renaming also adheres to the general approach of using Greek letters<a class="footnote-reference brackets" href="#greekfoot" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> for parameters and Roman letters for variables. In addition, when we come to <em>multiple</em> regression, this naming scheme is practical because we can expand the number of <span class="math notranslate nohighlight">\(\beta\)</span> terms as far as we want, without having to come up with new letters. Placing the <em>intercept</em> at the start of the sum is simply convention, but makes sense if we want to think of this as our <em>starting point</em>.</p>
+<p>This is functionally identical to the traditional notation, we have just renamed <span class="math notranslate nohighlight">\(b \rightarrow \beta_{0}\)</span>, <span class="math notranslate nohighlight">\(m \rightarrow \beta_{1}\)</span> and have changed the order of the terms in the sum. The reason is simply that it is more practical to group parameters together under the same letter, using indices to distinguish them. Furthermore, this adheres to the more general approach of using Greek letters <a class="footnote-reference brackets" href="#greekfoot" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> for parameters and Roman letters for variables. Placing the <em>intercept</em> at the start of the sum is simply convention, but makes sense if we want to think of this as our <em>baseline</em> or <em>starting point</em>.</p>
 </section>
 <section id="the-variance-function">
 <h3>3) The Variance Function<a class="headerlink" href="#the-variance-function" title="Link to this heading">#</a></h3>
-<p>Finally, to complete the model, we need to define the variance function. As indicated last week, this gives the form that we assume <span class="math notranslate nohighlight">\(\text{Var}\left(y|x\right)\)</span> takes. In other words, we define an equation for the <em>width</em> of the population distribution and how this can change with different values of <span class="math notranslate nohighlight">\(x\)</span>. For instance, how variable do we expect the measurements of MPG to be across different cars that share the same value of weight? Furthermore, how do we expect this variability to change depending upon the specific values of weight?</p>
+<p>Finally, to complete the model, we need to define the variance function. As indicated last week, this gives the form that we assume <span class="math notranslate nohighlight">\(\text{Var}\left(y|x\right)\)</span> takes. In other words, we define an equation for the <em>width</em> of the population distribution and how this can change with different values of <span class="math notranslate nohighlight">\(x\)</span>. For instance, how variable do we expect the measurements of MPG to be across different cars that share the same value of weight? Furthermore, how do we expect this variability to change depending upon the specific value of weight?</p>
 <p>For a simple regression model, the variance function takes on a very basic form:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -466,7 +466,7 @@ y_{i} \sim \mathcal{N}\left(\beta_{0} + \beta_{1}x_{i},\sigma^{2}\right).
 \end{align*}
 \end{split}\]</div>
 <p>which is probably the most common form that you will seen in statistical textbooks and the literature.</p>
-<p>Irrespective of how it is written, all the forms above imply <em>the same model</em>. We can visualise this below as we did last week, using the <code class="docutils literal notranslate"><span class="pre">mtcars</span></code> data. Make sure you spend some time moving this visualisation around and thinking about how it connects with all the different ways of writing the model given above. Remember as well that the distributions visualised here are just <em>examples</em> for a selection of Weight values. The model itself implies a normal distribution for <em>every possible value of Weight</em>.</p>
+<p>Irrespective of how it is written, all the forms above imply <em>the same model</em>. We can visualise this below as we did last week, using the <code class="docutils literal notranslate"><span class="pre">mtcars</span></code> data. Make sure you spend some time moving this visualisation around and thinking about how it connects with all the different ways of writing the model given above. Remember as well that the distributions visualised here are just <em>examples</em> for a selection of Weight values. The model itself implies a normal distribution for <em>every possible value of Weight</em>, both between these distributions and beyond the range of the current dataset.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><!doctype html>
@@ -545,7 +545,6 @@ y_{i} = \beta_{0} + \beta_{1}x_{i} + \epsilon_{i},
 y_{i} = b_{0} + b_{1}x_{i} + e_{i}.
 \]</div>
 <p>You can decide which of these you prefer, but we will be using “hats” in all our notation going forward.</p>
-<p>If you are familiar with SPSS, that software chooses to call regression estimates <code class="docutils literal notranslate"><span class="pre">b</span></code> and <em>standardised</em> estimates <code class="docutils literal notranslate"><span class="pre">beta</span></code>. Given the conventions mentioned above, you can hopefully see why this is very confusing and provides yet another reason to ditch SPSS entirely. However, if you ever find someone referring to <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code> values in the context of a regression analysis, you can probably work out where ther have gleaned their statistical knowledge from.</p>
 </div>
 </section>
 <section id="errors-vs-residuals">
@@ -555,12 +554,12 @@ y_{i} = b_{0} + b_{1}x_{i} + e_{i}.
 \[
 y_{i} = \hat{\beta}_{0} + \hat{\beta}_{1}x_{i} + e_{i}.
 \]</div>
-<p>This is helpful, because it makes it clearer that the residuals are not really a parameter, rather they are a <em>derived</em> quantity.</p>
+<p>This is helpful, because it makes it clearer that the residuals are not really a parameter, rather they are a <em>derived</em> quantity. As we will see going forward, errors and residuals can have different properties because the estimation method itself will impact the behaviour of the residuals. As such, this ends up being quite an important distinction because our model makes assumptions about the <em>errors</em> but we only have the <em>residuals</em> available to assess these assumptions. The extent to which we can therefore use the residuals as a proxy for the errors is an aspect we need to be mindful of going forward.</p>
 <aside class="topic">
 <p class="topic-title">What do you now know?</p>
 <p>In this section, we have explored how the concept of fitting a straight line to data can be formalised into a statistical model, leading to <em>simple linear regression</em>. After reading this section, you should have a good sense of:</p>
 <ul class="simple">
-<li><p>How the population distriution, mean function and variance function are defined to give the simple regression model <span class="math notranslate nohighlight">\(y_{i} \sim  \mathcal{N}\left(\beta_{0} + \beta_{1}x_{i}, \sigma^{2}\right)\)</span>.</p></li>
+<li><p>How the population distribution, mean function and variance function are defined to give the simple regression model <span class="math notranslate nohighlight">\(y_{i} \sim  \mathcal{N}\left(\beta_{0} + \beta_{1}x_{i}, \sigma^{2}\right)\)</span>.</p></li>
 <li><p>How the simplicity of this method is justified using the concept of <em>Occam’s Razor</em>.</p></li>
 <li><p>How simple regression is an example of a <em>linear model</em>, which is the more general framework we will be using throughout this course.</p></li>
 <li><p>How the notation <span class="math notranslate nohighlight">\(\hat{\beta}_{1}\)</span> differs from <span class="math notranslate nohighlight">\(\beta_{1}\)</span> in terms of indicating an <em>estimate</em>, rather than the true population value.</p></li>
@@ -569,9 +568,9 @@ y_{i} = \hat{\beta}_{0} + \hat{\beta}_{1}x_{i} + e_{i}.
 </aside>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="greekfoot" role="note">
+<aside class="footnote brackets" id="greekfoot" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>If you are not very comfortable with the Greek alphabet, you may want to spend some time learning the names of the letters and how to pronounce them. Be slightly careful though, many of the letters are not pronounced the same way as the actual Greek language and also differ between American English and British English. <a class="reference external" href="https://www.youtube.com/watch?v=CnotqG06t_A">This video</a> is a good resource containing the British English pronounciation of the letters.</p>
+<p>If you are not very comfortable with the Greek alphabet, you may want to spend some time learning the names of the letters and how to pronounce them. Be slightly careful though, many of the letters are not pronounced the same way as the actual Greek language and also differ between American English and British English. <a class="reference external" href="https://www.youtube.com/watch?v=CnotqG06t_A">This video</a> is a good resource containing the British English pronunciations.</p>
 </aside>
 </aside>
 </section>
@@ -637,11 +636,12 @@ y_{i} = \hat{\beta}_{0} + \hat{\beta}_{1}x_{i} + e_{i}.
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-regression-model-elements">Simple Regression Model Elements</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-population-distribution">1) The Population Distribution</a></li>

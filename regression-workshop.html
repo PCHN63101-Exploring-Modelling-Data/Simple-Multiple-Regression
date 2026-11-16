@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>PCHN63101 Regression Workshop &#8212; LM I: Simple and Multiple Regression</title>
   
@@ -31,10 +31,10 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/test.css?v=90b7ad94" />
@@ -50,11 +50,11 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -323,7 +323,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -347,7 +347,7 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -443,7 +443,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/14a42d044794d6d37462a7e19f2ffea1602b907d6cb142466993ae6d5a52f949.png"><img alt="_images/14a42d044794d6d37462a7e19f2ffea1602b907d6cb142466993ae6d5a52f949.png" src="_images/14a42d044794d6d37462a7e19f2ffea1602b907d6cb142466993ae6d5a52f949.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/14a42d044794d6d37462a7e19f2ffea1602b907d6cb142466993ae6d5a52f949.png"><img alt="_images/14a42d044794d6d37462a7e19f2ffea1602b907d6cb142466993ae6d5a52f949.png" src="_images/14a42d044794d6d37462a7e19f2ffea1602b907d6cb142466993ae6d5a52f949.png" style="width: 420px; height: 420px;" />
+</a>
 </div>
 </div>
 <div class="alert alert-block alert-info"> 
@@ -576,8 +577,10 @@ y_{i} \sim \mathcal{N}\left(\beta_{0} + \beta_{1}x_{i}, \sigma^{2}\right)
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/c9d363155f4421a777db4841646b98ae0dd271eb5ff05e3ad9e647cd1b01bad1.png"><img alt="_images/c9d363155f4421a777db4841646b98ae0dd271eb5ff05e3ad9e647cd1b01bad1.png" src="_images/c9d363155f4421a777db4841646b98ae0dd271eb5ff05e3ad9e647cd1b01bad1.png" style="width: 420px; height: 420px;" /></a>
-<a class="reference internal image-reference" href="_images/291dea028b327542e16353282dc72baaecaf822834dcd4b999ec84e3e90f7d24.png"><img alt="_images/291dea028b327542e16353282dc72baaecaf822834dcd4b999ec84e3e90f7d24.png" src="_images/291dea028b327542e16353282dc72baaecaf822834dcd4b999ec84e3e90f7d24.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/c9d363155f4421a777db4841646b98ae0dd271eb5ff05e3ad9e647cd1b01bad1.png"><img alt="_images/c9d363155f4421a777db4841646b98ae0dd271eb5ff05e3ad9e647cd1b01bad1.png" src="_images/c9d363155f4421a777db4841646b98ae0dd271eb5ff05e3ad9e647cd1b01bad1.png" style="width: 420px; height: 420px;" />
+</a>
+<a class="reference internal image-reference" href="_images/291dea028b327542e16353282dc72baaecaf822834dcd4b999ec84e3e90f7d24.png"><img alt="_images/291dea028b327542e16353282dc72baaecaf822834dcd4b999ec84e3e90f7d24.png" src="_images/291dea028b327542e16353282dc72baaecaf822834dcd4b999ec84e3e90f7d24.png" style="width: 420px; height: 420px;" />
+</a>
 </div>
 </div>
 <p>The key to understanding the equivalence is recognising that it is only the deviations from the line that are random, whereas the regression equation is fixed. In the first form, this is implicit because we set the mean of the normal distribution (the <em>fixed</em>, <em>predictable</em> or <em>systematic</em> part) to the regression line and then sample data from around that point. In the second form, this is more explicit because we effectively generate the regression line and then <em>add</em> random noise to it.</p>
@@ -591,9 +594,12 @@ y_{i} \sim \mathcal{N}\left(\beta_{0} + \beta_{1}x_{i}, \sigma^{2}\right)
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/67376776603b323baead2c51cbfb086645f4bf1c72901ee3ac93c2477154e54c.png"><img alt="_images/67376776603b323baead2c51cbfb086645f4bf1c72901ee3ac93c2477154e54c.png" src="_images/67376776603b323baead2c51cbfb086645f4bf1c72901ee3ac93c2477154e54c.png" style="width: 420px; height: 420px;" /></a>
-<a class="reference internal image-reference" href="_images/292c7ad4c0ce093bc773a5efdf45b8c1cbb94f5e6759a7183d4818b2c460ea20.png"><img alt="_images/292c7ad4c0ce093bc773a5efdf45b8c1cbb94f5e6759a7183d4818b2c460ea20.png" src="_images/292c7ad4c0ce093bc773a5efdf45b8c1cbb94f5e6759a7183d4818b2c460ea20.png" style="width: 420px; height: 420px;" /></a>
-<a class="reference internal image-reference" href="_images/0c7a62805045db9c77c2215d291034ab4bf044a24891359dac08d311e3817595.png"><img alt="_images/0c7a62805045db9c77c2215d291034ab4bf044a24891359dac08d311e3817595.png" src="_images/0c7a62805045db9c77c2215d291034ab4bf044a24891359dac08d311e3817595.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/67376776603b323baead2c51cbfb086645f4bf1c72901ee3ac93c2477154e54c.png"><img alt="_images/67376776603b323baead2c51cbfb086645f4bf1c72901ee3ac93c2477154e54c.png" src="_images/67376776603b323baead2c51cbfb086645f4bf1c72901ee3ac93c2477154e54c.png" style="width: 420px; height: 420px;" />
+</a>
+<a class="reference internal image-reference" href="_images/292c7ad4c0ce093bc773a5efdf45b8c1cbb94f5e6759a7183d4818b2c460ea20.png"><img alt="_images/292c7ad4c0ce093bc773a5efdf45b8c1cbb94f5e6759a7183d4818b2c460ea20.png" src="_images/292c7ad4c0ce093bc773a5efdf45b8c1cbb94f5e6759a7183d4818b2c460ea20.png" style="width: 420px; height: 420px;" />
+</a>
+<a class="reference internal image-reference" href="_images/0c7a62805045db9c77c2215d291034ab4bf044a24891359dac08d311e3817595.png"><img alt="_images/0c7a62805045db9c77c2215d291034ab4bf044a24891359dac08d311e3817595.png" src="_images/0c7a62805045db9c77c2215d291034ab4bf044a24891359dac08d311e3817595.png" style="width: 420px; height: 420px;" />
+</a>
 </div>
 </div>
 <div class="alert alert-block alert-info"> 
@@ -686,7 +692,8 @@ Volvo 142E          22.427495 22.427495
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/eec240ac7ca541f28f03d49b7eaf1c639704101b5cacfec749626deb7b1c9e3d.png"><img alt="_images/eec240ac7ca541f28f03d49b7eaf1c639704101b5cacfec749626deb7b1c9e3d.png" src="_images/eec240ac7ca541f28f03d49b7eaf1c639704101b5cacfec749626deb7b1c9e3d.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/eec240ac7ca541f28f03d49b7eaf1c639704101b5cacfec749626deb7b1c9e3d.png"><img alt="_images/eec240ac7ca541f28f03d49b7eaf1c639704101b5cacfec749626deb7b1c9e3d.png" src="_images/eec240ac7ca541f28f03d49b7eaf1c639704101b5cacfec749626deb7b1c9e3d.png" style="width: 420px; height: 420px;" />
+</a>
 </div>
 </div>
 <p>Each one of these points can be conceptualised as the mean of the normal distribution running up the <span class="math notranslate nohighlight">\(y\)</span>-axis, for each value of <code class="docutils literal notranslate"><span class="pre">wt</span></code>. From this perspective, the mean function <em>is</em> our model of the data. It captures the non-random systematic patterns we can see. This is conceptualised in terms of the <em>expected value</em> of a particular probability distribution which, in this example, changes depending upon the value of the predictor variable. This change in the expected values is given <em>precisely</em> by the regression line. Indeed, we can think of the regression line as a representation of how the mean of the normal distribution changes for different values of the predictor variable.</p>
@@ -723,8 +730,10 @@ Volvo 142E          22.427495 22.427495
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/1a738da4ed4e48431293021d4df39b9871a0420d538e98177403fac8131d58fe.png"><img alt="_images/1a738da4ed4e48431293021d4df39b9871a0420d538e98177403fac8131d58fe.png" src="_images/1a738da4ed4e48431293021d4df39b9871a0420d538e98177403fac8131d58fe.png" style="width: 420px; height: 420px;" /></a>
-<a class="reference internal image-reference" href="_images/00f5a9064f30931bce071f9d1ce445064145dc29f933fe7edad806ef81307e19.png"><img alt="_images/00f5a9064f30931bce071f9d1ce445064145dc29f933fe7edad806ef81307e19.png" src="_images/00f5a9064f30931bce071f9d1ce445064145dc29f933fe7edad806ef81307e19.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/1a738da4ed4e48431293021d4df39b9871a0420d538e98177403fac8131d58fe.png"><img alt="_images/1a738da4ed4e48431293021d4df39b9871a0420d538e98177403fac8131d58fe.png" src="_images/1a738da4ed4e48431293021d4df39b9871a0420d538e98177403fac8131d58fe.png" style="width: 420px; height: 420px;" />
+</a>
+<a class="reference internal image-reference" href="_images/00f5a9064f30931bce071f9d1ce445064145dc29f933fe7edad806ef81307e19.png"><img alt="_images/00f5a9064f30931bce071f9d1ce445064145dc29f933fe7edad806ef81307e19.png" src="_images/00f5a9064f30931bce071f9d1ce445064145dc29f933fe7edad806ef81307e19.png" style="width: 420px; height: 420px;" />
+</a>
 </div>
 </div>
 <div class="alert alert-block alert-info"> 
@@ -738,7 +747,8 @@ Volvo 142E          22.427495 22.427495
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/6875f5a20b1af1ee2471d83bdbd839d05db0e9110a35cca09b5bba260c7c6c0c.png"><img alt="_images/6875f5a20b1af1ee2471d83bdbd839d05db0e9110a35cca09b5bba260c7c6c0c.png" src="_images/6875f5a20b1af1ee2471d83bdbd839d05db0e9110a35cca09b5bba260c7c6c0c.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/6875f5a20b1af1ee2471d83bdbd839d05db0e9110a35cca09b5bba260c7c6c0c.png"><img alt="_images/6875f5a20b1af1ee2471d83bdbd839d05db0e9110a35cca09b5bba260c7c6c0c.png" src="_images/6875f5a20b1af1ee2471d83bdbd839d05db0e9110a35cca09b5bba260c7c6c0c.png" style="width: 420px; height: 420px;" />
+</a>
 </div>
 </div>
 </section>
@@ -940,7 +950,8 @@ Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/41c068dad668f6e2712711b1464c2a16476256c06e5a8b650520e6d4be4305fe.png"><img alt="_images/41c068dad668f6e2712711b1464c2a16476256c06e5a8b650520e6d4be4305fe.png" src="_images/41c068dad668f6e2712711b1464c2a16476256c06e5a8b650520e6d4be4305fe.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/41c068dad668f6e2712711b1464c2a16476256c06e5a8b650520e6d4be4305fe.png"><img alt="_images/41c068dad668f6e2712711b1464c2a16476256c06e5a8b650520e6d4be4305fe.png" src="_images/41c068dad668f6e2712711b1464c2a16476256c06e5a8b650520e6d4be4305fe.png" style="width: 420px; height: 420px;" />
+</a>
 </div>
 </div>
 <p>So, we now have a model where the prediction for a weight of 0 is indeed 0 MPG. So this is good. Unfortunately, we cannot say the same for anything else about this model. While <em>technically</em> the prediction for a weight of 0 is now sensible, forcing a straight line to pass through 0 clearly does not match the actual data.</p>
@@ -988,7 +999,8 @@ F-statistic: 91.38 on 1 and 30 DF,  p-value: 1.294e-10
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/17c1d94b9e8f316264f411fbe5c370790ff1881680cd7b6162eaba8e2495776b.png"><img alt="_images/17c1d94b9e8f316264f411fbe5c370790ff1881680cd7b6162eaba8e2495776b.png" src="_images/17c1d94b9e8f316264f411fbe5c370790ff1881680cd7b6162eaba8e2495776b.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/17c1d94b9e8f316264f411fbe5c370790ff1881680cd7b6162eaba8e2495776b.png"><img alt="_images/17c1d94b9e8f316264f411fbe5c370790ff1881680cd7b6162eaba8e2495776b.png" src="_images/17c1d94b9e8f316264f411fbe5c370790ff1881680cd7b6162eaba8e2495776b.png" style="width: 420px; height: 420px;" />
+</a>
 </div>
 </div>
 <p>We could also centre the MPG variable. This would render the average value of MPG for an average value of Weight 0. This means we can drop the intercept and return to regression through the origin. This is because the origin now sits in the <em>middle</em> of our data, rather than miles away from the data (as was the case before).</p>
@@ -1023,7 +1035,8 @@ Multiple R-squared:  0.7528,	Adjusted R-squared:  0.7449
 F-statistic: 94.42 on 1 and 31 DF,  p-value: 6.332e-11
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/c0ebc47ac04283d9e2a6e288010173d3444c5767c7be8a9a1c9488b7057b026b.png"><img alt="_images/c0ebc47ac04283d9e2a6e288010173d3444c5767c7be8a9a1c9488b7057b026b.png" src="_images/c0ebc47ac04283d9e2a6e288010173d3444c5767c7be8a9a1c9488b7057b026b.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/c0ebc47ac04283d9e2a6e288010173d3444c5767c7be8a9a1c9488b7057b026b.png"><img alt="_images/c0ebc47ac04283d9e2a6e288010173d3444c5767c7be8a9a1c9488b7057b026b.png" src="_images/c0ebc47ac04283d9e2a6e288010173d3444c5767c7be8a9a1c9488b7057b026b.png" style="width: 420px; height: 420px;" />
+</a>
 </div>
 </div>
 <p>Notice that the fit is exactly the same, we have just removed the need for an intercept. In practice, there is often little call for doing this, especially as it then causes some interpretational issues given the mean-centered scales. This can be overcome by adding the means back in when visualising the model fit, but this usually just amounts to unnecessary fiddling for limited gain. <em>However</em>, this can be instructive in terms of understanding how regression models work and why the intercept is there in the first place.</p>
@@ -1054,7 +1067,8 @@ F-statistic: 94.42 on 1 and 31 DF,  p-value: 6.332e-11
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/3b80ed57d85a43675e81a6dd76380f41aa43a7392ace7d38093b0b9624589344.png"><img alt="_images/3b80ed57d85a43675e81a6dd76380f41aa43a7392ace7d38093b0b9624589344.png" src="_images/3b80ed57d85a43675e81a6dd76380f41aa43a7392ace7d38093b0b9624589344.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/3b80ed57d85a43675e81a6dd76380f41aa43a7392ace7d38093b0b9624589344.png"><img alt="_images/3b80ed57d85a43675e81a6dd76380f41aa43a7392ace7d38093b0b9624589344.png" src="_images/3b80ed57d85a43675e81a6dd76380f41aa43a7392ace7d38093b0b9624589344.png" style="width: 420px; height: 420px;" />
+</a>
 </div>
 </div>
 <div class="alert alert-block alert-info"> 
@@ -1092,7 +1106,8 @@ F-statistic: 94.42 on 1 and 31 DF,  p-value: 6.332e-11
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/2828c7a2d9bbb0e2b0e7e41f5a0b651d055cc7acdb2f474902112059d627b876.png"><img alt="_images/2828c7a2d9bbb0e2b0e7e41f5a0b651d055cc7acdb2f474902112059d627b876.png" src="_images/2828c7a2d9bbb0e2b0e7e41f5a0b651d055cc7acdb2f474902112059d627b876.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/2828c7a2d9bbb0e2b0e7e41f5a0b651d055cc7acdb2f474902112059d627b876.png"><img alt="_images/2828c7a2d9bbb0e2b0e7e41f5a0b651d055cc7acdb2f474902112059d627b876.png" src="_images/2828c7a2d9bbb0e2b0e7e41f5a0b651d055cc7acdb2f474902112059d627b876.png" style="width: 420px; height: 420px;" />
+</a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1121,7 +1136,8 @@ F-statistic: 94.42 on 1 and 31 DF,  p-value: 6.332e-11
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/1593f24e592c60127f18d0f53a0d2ec107cf3c8e1be1a4659a9e43340e1aca0d.png"><img alt="_images/1593f24e592c60127f18d0f53a0d2ec107cf3c8e1be1a4659a9e43340e1aca0d.png" src="_images/1593f24e592c60127f18d0f53a0d2ec107cf3c8e1be1a4659a9e43340e1aca0d.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/1593f24e592c60127f18d0f53a0d2ec107cf3c8e1be1a4659a9e43340e1aca0d.png"><img alt="_images/1593f24e592c60127f18d0f53a0d2ec107cf3c8e1be1a4659a9e43340e1aca0d.png" src="_images/1593f24e592c60127f18d0f53a0d2ec107cf3c8e1be1a4659a9e43340e1aca0d.png" style="width: 420px; height: 420px;" />
+</a>
 </div>
 </div>
 <div class="alert alert-block alert-info"> 
@@ -1159,7 +1175,8 @@ F-statistic: 94.42 on 1 and 31 DF,  p-value: 6.332e-11
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/45785f32c47e6eb5695c3e1bb47446004e2dfcadfacb7e7519825f8f6a0e9937.png"><img alt="_images/45785f32c47e6eb5695c3e1bb47446004e2dfcadfacb7e7519825f8f6a0e9937.png" src="_images/45785f32c47e6eb5695c3e1bb47446004e2dfcadfacb7e7519825f8f6a0e9937.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/45785f32c47e6eb5695c3e1bb47446004e2dfcadfacb7e7519825f8f6a0e9937.png"><img alt="_images/45785f32c47e6eb5695c3e1bb47446004e2dfcadfacb7e7519825f8f6a0e9937.png" src="_images/45785f32c47e6eb5695c3e1bb47446004e2dfcadfacb7e7519825f8f6a0e9937.png" style="width: 420px; height: 420px;" />
+</a>
 </div>
 </div>
 <div class="alert alert-block alert-info"> 
@@ -1228,11 +1245,12 @@ F-statistic: 94.42 on 1 and 31 DF,  p-value: 6.332e-11
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimising-error-with-a-line">Minimising Error With a Line</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-likelihood">Maximum Likelihood</a></li>
